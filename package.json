@@ -1,0 +1,41 @@
+{
+  "name": "react-native-tmap-navi",
+  "title": "React Native Launch Tmap Navi",
+  "version": "1.0.6",
+  "description": "리액트 네이티브용 티맵내비입니다.",
+  "main": "index.js",
+  "files": [
+    "README.md",
+    "android",
+    "index.js",
+    "ios",
+    "react-native-tmap-navi.podspec"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": "http://www.moramcnt.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/github_account/react-native-launch-tmap-navi.git",
+    "baseUrl": "https://github.com/github_account/react-native-launch-tmap-navi"
+  },
+  "keywords": [
+    "react-native, tmap navi"
+  ],
+  "author": {
+    "name": "베스텔라랩",
+    "email": "bumkyu98@watchmile.com"
+  },
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
+  "readmeFilename": "README.md",
+  "peerDependencies": {
+    "react": "^16.8.1",
+    "react-native": ">=0.60.0-rc.0 <1.0.x"
+  },
+  "devDependencies": {
+    "react": "^16.9.0",
+    "react-native": "^0.61.5"
+  }
+}
