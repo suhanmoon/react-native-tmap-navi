@@ -1,7 +1,15 @@
 # react-native-tmap-navi
 
+
+![platforms](https://img.shields.io/badge/platforms-Android%20%7C%20iOS-brightgreen.svg?style=flat-square&colorB=191A17)
+[![npm](https://img.shields.io/npm/v/react-native-tmap-navi.svg?style=flat-square)](https://www.npmjs.com/package/react-native-tmap-navi)
+[![npm](https://img.shields.io/npm/dm/react-native-tmap-navi.svg?style=flat-square&colorB=007ec6)](https://www.npmjs.com/package/react-native-tmap-navi)
+[![github issues](https://img.shields.io/github/issues/Kwon-Bum-Kyu/react-native-tmap-navi.svg?style=flat-square)](https://github.com/Kwon-Bum-Kyu/react-native-tmap-navi/issues)
+[![github closed issues](https://img.shields.io/github/issues-closed/Kwon-Bum-Kyu/react-native-tmap-navi.svg?style=flat-square&colorB=44cc11)](https://github.com/Kwon-Bum-Kyu/react-native-tmap-navi/issues?q=is%3Aissue+is%3Aclosed)
+
 ## Getting started
 `$ npm install react-native-tmapsdk --save --save --legacy-peer-deps`
+
 `$ npm install react-native-tmap-navi --save --save --legacy-peer-deps`
 
 ### iOS
@@ -31,7 +39,7 @@ Project/android/app/src/main/res/values/strings.xml
 
 ```xml
 <resources>
-    <string name="app_name">app_name</string>
+	<string name="app_name">app_name</string>
 	<string name="tmap_app_key">tmap_app_key</string> <!--Enter key value -->
 	
 </resources>
