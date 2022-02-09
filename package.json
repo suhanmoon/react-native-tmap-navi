@@ -1,7 +1,7 @@
 {
   "name": "react-native-tmap-navi",
   "title": "React Native Launch Tmap Navi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "리액트 네이티브용 티맵내비입니다.",
   "main": "index.js",
   "scripts": {
