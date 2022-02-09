@@ -1,7 +1,7 @@
 {
   "name": "react-native-tmap-navi",
   "title": "React Native Launch Tmap Navi",
-  "version": "1.0.6",
+  "version": "1.0.0",
   "description": "리액트 네이티브용 티맵내비입니다.",
   "main": "index.js",
   "files": [
@@ -17,11 +17,11 @@
   "homepage": "http://www.moramcnt.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-launch-tmap-navi.git",
-    "baseUrl": "https://github.com/github_account/react-native-launch-tmap-navi"
+    "url": "git+https://github.com/Kwon-Bum-Kyu/react-native-tmap-navi.git",
+    "baseUrl": "https://github.com/Kwon-Bum-Kyu/react-native-tmap-navi"
   },
   "keywords": [
-    "react-native, tmap navi"
+    "react-native, tmap navi, react-native-tmap-navi, tmap" 
   ],
   "author": {
     "name": "베스텔라랩",
