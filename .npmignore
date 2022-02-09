@@ -2,8 +2,9 @@
 docs
 
 # Build
-android/build/
-ios/build/
+build/
+android/build
+ios/build
 react-native-fast-image-*.tgz
 react-native-tmap-navi-*.tgz
 
