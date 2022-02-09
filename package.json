@@ -4,17 +4,10 @@
   "version": "1.0.0",
   "description": "리액트 네이티브용 티맵내비입니다.",
   "main": "index.js",
-  "files": [
-    "README.md",
-    "android",
-    "index.js",
-    "ios",
-    "react-native-tmap-navi.podspec"
-  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "http://www.moramcnt.com",
+  "homepage": "https://github.com/Kwon-Bum-Kyu/react-native-tmap-navi",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kwon-Bum-Kyu/react-native-tmap-navi.git",
