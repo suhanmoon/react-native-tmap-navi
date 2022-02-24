@@ -8,9 +8,9 @@
 [![github closed issues](https://img.shields.io/github/issues-closed/Kwon-Bum-Kyu/react-native-tmap-navi.svg?style=flat-square&colorB=44cc11)](https://github.com/Kwon-Bum-Kyu/react-native-tmap-navi/issues?q=is%3Aissue+is%3Aclosed)
 
 ## Getting started
-`$ npm install react-native-tmapsdk --save --save --legacy-peer-deps`
+`$ npm install react-native-tmapsdk --save --legacy-peer-deps`
 
-`$ npm install react-native-tmap-navi --save --save --legacy-peer-deps`
+`$ npm install @vestellalab/react-native-tmap-navi --save --legacy-peer-deps`
 
 ### iOS
 

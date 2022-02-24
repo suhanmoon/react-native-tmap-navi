@@ -1,7 +1,7 @@
 {
-  "name": "react-native-tmap-navi",
+  "name": "@vestellalab/react-native-tmap-navi",
   "title": "React Native Launch Tmap Navi",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "리액트 네이티브용 티맵내비입니다.",
   "main": "index.js",
   "scripts": {
@@ -17,8 +17,8 @@
     "react-native, tmap navi, react-native-tmap-navi, tmap" 
   ],
   "author": {
-    "name": "베스텔라랩",
-    "email": "bumkyu98@watchmile.com"
+    "name": "Vestellalab",
+    "email": "support@vestellalab.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
