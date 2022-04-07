@@ -18,14 +18,8 @@ class LaunchTmapNavi: NSObject, TMapTapiDelegate, CLLocationManagerDelegate
 	static let NAVI_RETURN_CODE_SUCCESS = "01";
 	static let NAVI_RETURN_CODE_NOT_INSTALLED = "02";
 	static let NAVI_RETURN_CODE_NOT_INVOKE = "03";
-	
-	//var mDicRouteInfo : Dictionary<String, Any> = Dictionary<String, Any>();
-
-    let locationManager = CLLocationManager()
 	var destinationString = "목적지";
-    // var userNotificationCenter;
-    // let userNotificationCenter = UNUserNotificationCenter.current()
-	
+
 	public override init()
 	{
 		print("------------------------------");
@@ -38,17 +32,6 @@ class LaunchTmapNavi: NSObject, TMapTapiDelegate, CLLocationManagerDelegate
 		print(" -strApiKey:\(strApiKey ?? "")");
 		TMapApi.setSKTMapAuthenticationWithDelegate(self, apiKey: strApiKey ?? "");
 
-
-        print("티맵 내비 연동 성공111")
-        // locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 0.1
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        locationManager.allowsBackgroundLocationUpdates = true
-		// userNotificationCenter = UNUserNotificationCenter.current()
-		
-        requestNotificationAuthorization() // 알림을 위한 준비
 	}
 
 	func SKTMapApikeySucceed()
@@ -110,8 +93,7 @@ class LaunchTmapNavi: NSObject, TMapTapiDelegate, CLLocationManagerDelegate
 				let boolInvoke:Bool = TMapApi.invokeRoute(strName, coordinate: clsCoord);
 				if(boolInvoke == true)
 				{
-                    self.destinationString = strName
-            		self.locationManager.startUpdatingLocation() // 백그라운드에서 로케이션 받아오기
+		                    self.destinationString = strName
 					resolve(LaunchTmapNavi.NAVI_RETURN_CODE_SUCCESS);
 				}
 				else
@@ -164,57 +146,6 @@ class LaunchTmapNavi: NSObject, TMapTapiDelegate, CLLocationManagerDelegate
 	}
 	*/
 
-    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print("티맵 locationManager 11111 ")
-        if status == .authorizedAlways {
-            print("티맵 you're good to go!")
-        } else {
-            print("티맵 you're not good to go!")
-        }
-    }
-
-    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("티맵 locationManager 22222 ")
-        let lastLocation = locations.last
-        let latitude = (lastLocation?.coordinate.latitude)!
-        let longitude = (lastLocation?.coordinate.longitude)!
-        print("티맵 locationManager latitude is \(latitude), longitude is \(longitude)")
-        
-        let returnValue = getDistance(lat1: latitude, lon1: longitude, lat2: 37.3750148, lon2: 126.9482640, unit: "kilometer")
-        print("티맵 locationManager returnValue \(returnValue)")
-        if (returnValue <= 0.1 && returnValue > 0.05) { // 키로미터 단위
-            print("티맵 locationManager in destination")
-            self.sendNotification(seconds: 1) // 1초 뒤에 알림 띄우기
-        } else if (returnValue <= 0.05) { // 키로미터 단위
-            print("티맵 locationManager in destination")
-            self.locationManager.stopUpdatingLocation() // 백그라운드에서의 위치 탐색 중지
-            self.sendNotification(seconds: 1) // 1초 뒤에 알림 띄우기
-        }
-        
-    }
-
-    public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("티맵 GPS Error => \(error.localizedDescription)")
-    }
-
-    func requestNotificationAuthorization() {
-		if #available(iOS 10.0, *) {
-        	let authOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
-
-        	UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { success, error in
-        	    if let error = error {
-        	        print("티맵 Error: \(error)")
-        	    }
-        	}
-		} else {
-			// iOS 9
-    		let type: UIUserNotificationType = [UIUserNotificationType.badge, UIUserNotificationType.alert, UIUserNotificationType.sound]
-    		let setting = UIUserNotificationSettings(types: type, categories: nil)
-    		UIApplication.shared.registerUserNotificationSettings(setting)
-    		UIApplication.shared.registerForRemoteNotifications()
-		}
-    }
-
     func deg2rad(_ number: Double) -> Double {
         return number * .pi / 180
     }
@@ -241,33 +172,4 @@ class LaunchTmapNavi: NSObject, TMapTapiDelegate, CLLocationManagerDelegate
         return dist
     }
 
-    func sendNotification(seconds: Double) {
-
-		if #available(iOS 10.0, *) {
-        	let notificationContent = UNMutableNotificationContent()
-			
-        	notificationContent.title = "목적지 도착 : \(destinationString)"
-        	notificationContent.body = "알림을 클릭하여 워치마일을 실행해주세요."
-			
-        	let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
-        	let request = UNNotificationRequest(identifier: "testNotification",
-        	                                    content: notificationContent,
-        	                                    trigger: trigger)
-												
-        	UNUserNotificationCenter.current().add(request) { error in
-        	    if let error = error {
-        	        print("티맵 Notification Error: ", error)
-        	    } else {
-        	        print("티맵 Notification success")
-        	    }
-        	}
-		} else {
-    		let notification = UILocalNotification()
-    		notification.fireDate = NSDate(timeIntervalSinceNow: 1) as Date
-    		notification.alertBody = "목적지에 도착하였습니다. 앱을 실행해주세요."
-    		notification.alertAction = "확인"
-    		notification.soundName = UILocalNotificationDefaultSoundName
-    		UIApplication.shared.scheduleLocalNotification(notification)
-		}
-    }
 }
